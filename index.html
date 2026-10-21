@@ -92,7 +92,7 @@
   function replaceSelectedWork(){
     if(document.getElementById('jrmm-ai-content')) return true;
     var headings=Array.from(document.querySelectorAll('h1,h2,h3,h4,[role="heading"]'));
-    var heading=headings.find(function(el){return (el.textContent||'').replace(/\\s+/g,' ').trim().toLowerCase()==='selected work';});
+    var heading=headings.find(function(el){return (el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase()==='selected work';});
     if(!heading) return false;
     var section=heading.closest('section');
     if(!section) section=heading.parentElement;
