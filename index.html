@@ -92,10 +92,17 @@
   function replaceSelectedWork(){
     if(document.getElementById('jrmm-ai-content')) return true;
     var headings=Array.from(document.querySelectorAll('h1,h2,h3,h4,[role="heading"]'));
-    var heading=headings.find(function(el){return (el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase()==='selected work';});
+    var heading=headings.find(function(el){
+      var t=(el.textContent||'').replace(/\\s+/g,' ').trim().toLowerCase();
+      return t.indexOf('quietly obsessed')!==-1 || t==='selected work';
+    });
     if(!heading) return false;
     var section=heading.closest('section');
-    if(!section) section=heading.parentElement;
+    if(!section) {
+      var node=heading;
+      while(node && node!==document.body && !/^(MAIN|BODY)$/.test(node.tagName) && !node.querySelector('video')) node=node.parentElement;
+      section=node && node!==document.body ? node : heading.parentElement;
+    }
     if(!section) return false;
     section.id='jrmm-ai-content';
     section.setAttribute('aria-labelledby','jrmm-ai-content-title');
