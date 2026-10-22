@@ -114,4 +114,33 @@
   window.addEventListener('load',replaceSelectedWork);
 })();
 </script>
+
+<style id="jrmm-about-mascot-alignment-fix">
+@media (min-width: 1024px) {
+  #about .relative.flex.justify-center.order-2.lg\\:order-1 { min-width:0; }
+}
+#about .relative.animate-floaty-slow{
+  width:min(100%,360px)!important;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  overflow:hidden;
+  isolation:isolate;
+  flex-shrink:0;
+}
+#about .relative.animate-floaty-slow > div[aria-hidden="true"]{
+  width:100%!important;
+  height:100%!important;
+  background-size:220% 330%!important;
+  background-position:100% 62%!important;
+  background-repeat:no-repeat!important;
+}
+@media(max-width:1023px){
+  #about .relative.animate-floaty-slow{width:min(78vw,340px)!important}
+  #about .relative.animate-floaty-slow > div[aria-hidden="true"]{background-size:220% 330%!important;background-position:100% 62%!important}
+}
+@media(max-width:480px){
+  #about .relative.animate-floaty-slow{width:min(74vw,290px)!important}
+  #about .relative.animate-floaty-slow > div[aria-hidden="true"]{background-size:230% 345%!important;background-position:100% 64%!important}
+}
+</style>
 </body></html>
